@@ -8,6 +8,19 @@ iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 
 StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. You can create `SwiftUI` `Text` views or just `AttributedString`s with those styled markdown strings.
 
+Custom `Text` and `AttributedString` initializers with custom `AttributedStringKey`s are used in the library.
+
+## Examples
+<p align="center">
+<img src="Docs/examples.png" width="400" max-width="80%" alt="glide devices"/>
+</p>
+
+### Limitation
+
+Currently there is a bug with `.init(markdown:including:)` initialiser of `AttributedString`. This initializer ignores custom `AttributedStringKey`s used in this library while creating the final string. Due to this, right now it is not possible to style any markdown string, but only localized keys. Radar reported, a new initialiser will be added once that is fixed.
+
+## Sample usage
+
 ```
 let normalStyle = Style { style in
 	style.font = .subheadline
@@ -39,18 +52,7 @@ AttributedString(
 )
 ```
 
-Custom `Text` and `AttributedString` initializers with custom `AttributedStringKey`s are used in the library.
-
 ***The idea of StyleGroup and named Styles comes directly from [`SwiftRichString` library by `Daniele Margutti` on GitHub](https://github.com/malcommac/SwiftRichString). Some of the code from there is also used in this package.***
-
-### Limitation
-
-Currently there is a bug with `.init(markdown:including:)` initialiser of `AttributedString`. This initializer ignores custom `AttributedStringKey`s used in this library while creating the final string. Due to this, right now it is not possible to style any markdown string, but only localized keys. Radar reported, a new initialiser will be added once that is fixed.
-
-## Examples
-<p align="center">
-<img src="Docs/examples.png" width="400" max-width="80%" alt="glide devices"/>
-</p>
 
 ## Supported modifiers
 
