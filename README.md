@@ -8,7 +8,7 @@ iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 
 StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. You can create `SwiftUI` `Text` views or just `AttributedString`s with those styled markdown strings.
 
-Custom `Text` and `AttributedString` initializers with custom `AttributedStringKey`s are used in the library.
+You don't have to define custom a `AttributedStringKey` each time you want a custom style in your markdown.
 
 ## Examples
 <p align="center">
