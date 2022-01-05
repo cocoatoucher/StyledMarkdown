@@ -6,7 +6,7 @@
 iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 </p>
 
-StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings.
+StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. You can create `SwiftUI` `Text` views or just `AttributedString`s with those styled markdown strings.
 
 ```
 let normalStyle = Style { style in
@@ -30,9 +30,16 @@ Text(
 	"Hey ^[buddy](style: 'bold')",
 	styleGroup: myStyleGroup
 )
+
+// or
+
+AttributedString(
+	localized: "Hey ^[buddy](style: 'bold')",
+	styleGroup: myStyleGroup
+)
 ```
 
-A custom `Text` initializer with custom `AttributedStringKey`s are used to achieve this outcome.
+Custom `Text` and `AttributedString` initializers with custom `AttributedStringKey`s are used in the library.
 
 ***The idea of StyleGroup and named Styles comes directly from [`SwiftRichString` library by `Daniele Margutti` on GitHub](https://github.com/malcommac/SwiftRichString). Some of the code from there is also used in this package.***
 

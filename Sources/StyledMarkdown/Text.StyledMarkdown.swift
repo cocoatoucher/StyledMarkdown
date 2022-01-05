@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Text {
+public extension Text {
     
     /// Creates a Text with given markdown localized key and a style group.
     /// - Parameters:
@@ -20,54 +20,9 @@ extension Text {
     ) {
         let attributedString = AttributedString(
             localized: localizedKey,
-            including: \.styledMarkdown
+            styleGroup: styleGroup
         )
-        self = Text(
-            Self.annotateStyles(
-                from: attributedString,
-                styleGroup: styleGroup
-            )
-        )
-    }
-    
-    // MARK: Private functions
-    
-    private static func annotateStyles(
-        from source: AttributedString,
-        styleGroup: StyleGroup
-    ) -> AttributedString {
-        
-        var attrString = source
-        
-        for run in attrString.runs {
-            
-            let currentRange = run.range
-            
-            styleGroup.baseStyle?.add(
-                to: &attrString[currentRange.lowerBound ..< currentRange.upperBound]
-            )
-            
-            // Regular style
-            if let styleName = run.styleName {
-                if let style = styleGroup.styles[styleName] {
-                    style.add(
-                        to: &attrString[currentRange.lowerBound ..< currentRange.upperBound]
-                    )
-                }
-            }
-            
-            // Link style
-            if let link = run.linkWithStyleName {
-                if let style = styleGroup.styles[link.style] {
-                    style.add(
-                        to: &attrString[currentRange.lowerBound ..< currentRange.upperBound]
-                    )
-                }
-                
-                attrString[currentRange.lowerBound ..< currentRange.upperBound].link = link.url
-            }
-        }
-        return attrString
+        self = Text(attributedString)
     }
     
 }
