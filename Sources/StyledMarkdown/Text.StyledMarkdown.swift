@@ -25,6 +25,23 @@ public extension Text {
         self = Text(attributedString)
     }
     
+    /// Creates a Text with given markdown string and a style group.
+    /// Due to an iOS bug, watch out for your markdown string to not be a localization key
+    /// as well which is referencing another string value.
+    /// - Parameters:
+    ///   - markdown: Markdown string.
+    ///   - styleGroup: Style group to be used to apply styling on the markdown.
+    init(
+        markdown: String,
+        styleGroup: StyleGroup
+    ) {
+        let attributedString = AttributedString(
+            markdown: markdown,
+            styleGroup: styleGroup
+        )
+        self = Text(attributedString)
+    }
+    
 }
 
 struct Text_StyledMarkdown_Previews: PreviewProvider {

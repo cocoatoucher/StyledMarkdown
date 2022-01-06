@@ -15,10 +15,6 @@ You don't have to define custom a `AttributedStringKey` each time you want a cus
 <img src="Docs/examples.png" width="400" max-width="80%" alt="glide devices"/>
 </p>
 
-### Limitation
-
-Currently there is a bug with `.init(markdown:including:)` initialiser of `AttributedString`. This initializer ignores custom `AttributedStringKey`s used in this library while creating the final string. Due to this, right now it is not possible to style variables and constants of markdown strings, but only localized keys of markdown strings. That is, you have to pass your markdown string as a string literal or from your localization files. Radar reported, a new initialiser will be added once that is fixed.
-
 ## Sample usage
 
 ```

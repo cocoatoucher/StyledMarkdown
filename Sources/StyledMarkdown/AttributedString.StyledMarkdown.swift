@@ -26,6 +26,29 @@ public extension AttributedString {
         )
     }
     
+    /// Creates an AttributedString with given markdown string and a style group.
+    /// Due to an iOS bug, watch out for your markdown string to not be a localization key
+    /// as well which is referencing another string value.
+    /// - Parameters:
+    ///   - markdown: Markdown string.
+    ///   - styleGroup: Style group to be used to apply styling on the markdown.
+    init(
+        markdown: String,
+        styleGroup: StyleGroup
+    ) {
+        // Here we are supposed to use `.init(markdown:including:)`
+        // of AttributedString
+        // but it has a bug, radar opened and waiting for a fix.
+        let attributedString = AttributedString(
+            localized: String.LocalizationValue(markdown),
+            including: \.styledMarkdown
+        )
+        self = Self.annotateStyles(
+            from: attributedString,
+            styleGroup: styleGroup
+        )
+    }
+    
     // MARK: Private functions
     
     private static func annotateStyles(
