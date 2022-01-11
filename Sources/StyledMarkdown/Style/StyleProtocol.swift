@@ -16,7 +16,7 @@ public protocol StyleProtocol {
 public extension StyleProtocol {
     
     func add(to source: inout AttributedSubstring) {
-        for modifier in self.modifiers {
+        for modifier in modifiers {
             switch modifier {
             case .font(let font):
                 source.font = font

@@ -6,9 +6,9 @@
 iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 </p>
 
-StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. You can create `SwiftUI` `Text` views or just `AttributedString`s with those styled markdown strings.
+StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. Specify fonts and any other attributes for your markdown style. You can create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit` with those styled markdown strings.
 
-You don't have to define custom a `AttributedStringKey` each time you want a custom style in your markdown.
+With StyledMarkdown, you do not have to define a custom `AttributedStringKey` each time you want a custom style in your markdown.
 
 ## Examples
 <p align="center">
@@ -61,6 +61,52 @@ AttributedString(
 #### kerning(*CGFloat*)
 #### tracking(*CGFloat*)
 #### baselineOffset(*CGFloat*)
+
+### Custom styles
+
+```
+let rainbowStyleGroup = StyleGroup(
+	styleCustom: { source in
+		var attrString = source
+		for run in attrString.runs {
+			let currentRange = run.range
+			var index = currentRange.lowerBound
+			let rainbow: [Color] = [
+				.blue,
+				.teal,
+				.red,
+				.gray,
+				.yellow,
+				.orange,
+				.purple
+			]
+			var colorCounter: Int = 0
+			while index < currentRange.upperBound {
+				let nextIndex = attrString.characters.index(index, offsetBy: 1)
+				attrString[index ..< nextIndex].foregroundColor = rainbow[colorCounter]
+				colorCounter += 1
+				if colorCounter >= rainbow.count {
+					colorCounter = 0
+				}
+				index = nextIndex
+			}
+		}
+		return attrString
+	}
+)
+
+Text(
+	"Rainbow",
+	styleGroup: rainbowStyleGroup
+)
+
+// or
+
+AttributedString(
+	localized: "Rainbow",
+	styleGroup: rainbowStyleGroup
+)
+```
 
 ### 🔗 Links
 

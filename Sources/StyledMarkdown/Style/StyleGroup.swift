@@ -7,19 +7,21 @@
 
 import Foundation
 
-public class StyleGroup: StyleProtocol {
-    
-    public var modifiers: [StyleModifier] = []
-    
-    public private(set) var styles: [String: StyleProtocol]
+public class StyleGroup {
     
     public var baseStyle: StyleProtocol?
     
+    public private(set) var styles: [String: StyleProtocol]
+    
+    public let styleCustom: ((AttributedString) -> AttributedString)?
+    
     public init(
         base: StyleProtocol? = nil,
-        _ styles: [String: StyleProtocol] = [:]
+        _ styles: [String: StyleProtocol] = [:],
+        styleCustom: ((AttributedString) -> AttributedString)? = nil
     ) {
-        self.styles = styles
         self.baseStyle = base
+        self.styles = styles
+        self.styleCustom = styleCustom
     }
 }

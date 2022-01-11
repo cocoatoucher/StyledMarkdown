@@ -90,6 +90,12 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
                 styleGroup: thirdStyleGroup
             )
                 .previewLayout(.sizeThatFits)
+            
+            Text(
+                "Rainbow",
+                styleGroup: rainbowStyleGroup
+            )
+                .previewLayout(.sizeThatFits)
         }
         .preferredColorScheme(.dark)
     }
@@ -203,6 +209,38 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
             [
                 "moreBaselineOffset": moreBaselineOffset
             ]
+        )
+    }
+    
+    static var rainbowStyleGroup: StyleGroup {
+        return .init(
+            styleCustom: { source in
+                var attrString = source
+                for run in attrString.runs {
+                    let currentRange = run.range
+                    var index = currentRange.lowerBound
+                    let rainbow: [Color] = [
+                        .blue,
+                        .teal,
+                        .red,
+                        .gray,
+                        .yellow,
+                        .orange,
+                        .purple
+                    ]
+                    var colorCounter: Int = 0
+                    while index < currentRange.upperBound {
+                        let nextIndex = attrString.characters.index(index, offsetBy: 1)
+                        attrString[index ..< nextIndex].foregroundColor = rainbow[colorCounter]
+                        colorCounter += 1
+                        if colorCounter >= rainbow.count {
+                            colorCounter = 0
+                        }
+                        index = nextIndex
+                    }
+                }
+                return attrString
+            }
         )
     }
 }

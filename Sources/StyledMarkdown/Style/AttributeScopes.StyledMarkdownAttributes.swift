@@ -35,7 +35,7 @@ enum StyleNameAttribute: CodableAttributedStringKey, MarkdownDecodableAttributed
 enum LinkWithStyleNameAttribute: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
     struct Value: Codable, Hashable {
         let url: URL
-        let style: String
+        let style: String?
     }
     
     static var name = "link"

@@ -77,7 +77,10 @@ public extension AttributedString {
             
             // Link style
             if let link = run.linkWithStyleName {
-                if let style = styleGroup.styles[link.style] {
+                if
+                    let linkStyleName = link.style,
+                    let style = styleGroup.styles[linkStyleName]
+                {
                     style.add(
                         to: &attrString[currentRange.lowerBound ..< currentRange.upperBound]
                     )
@@ -86,6 +89,11 @@ public extension AttributedString {
                 attrString[currentRange.lowerBound ..< currentRange.upperBound].link = link.url
             }
         }
+        
+        if let styleCustom = styleGroup.styleCustom {
+            attrString = styleCustom(source)
+        }
+        
         return attrString
     }
 }
