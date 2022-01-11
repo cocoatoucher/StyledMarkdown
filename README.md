@@ -107,6 +107,7 @@ AttributedString(
 	styleGroup: rainbowStyleGroup
 )
 ```
+_Parts of the above code for rainbow styling is taken from WWDC'21 sample app project called Caffe, Copyright © 2021 Apple Inc._
 
 ### 🔗 Links
 
