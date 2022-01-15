@@ -114,6 +114,15 @@ _Parts of the above code for rainbow styling is taken from WWDC'21 sample app pr
 You can add links inside your strings using the custom `link` `AttributedStringKey`:
 `^[styled link](link: {url: 'http://www.example.com', style: 'linkStyle'})`
 
+### iOS Automatic grammar agreement
+
+Automatic grammar agreement's `inflect` property works with StyledMarkdown styles.
+
+`^[2 salad](style: 'italic', inflect: true)`
+
+generates
+`2 salads` with italic style.
+
 ### 🎆 Images (not supported)
 
 It is currently not supported to include `Image` elements within `AttributedString`.
