@@ -6,7 +6,12 @@
 iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 </p>
 
-StyledMarkdown is a mini library that lets you define custom styles in code and use them in your localized markdown strings. Specify fonts and any other attributes for your markdown style. You can create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit` with those styled markdown strings.
+iOS 15 comes with markdown string support. You can style your strings with standard markdown syntax like **`**bold**`** and *`*italic*`*
+Although this is nice, as developers we usually need to specify a bit more complex styling information like `font type` and `text color`.
+
+---
+
+StyledMarkdown is a mini library that lets you define custom styles in code and use those styles in your localized markdown strings. Specify fonts and any other attributes for your markdown style. You can create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit` with those styled markdown strings.
 
 With StyledMarkdown, you do not have to define a custom `AttributedStringKey` each time you want a custom style in your markdown.
 
@@ -62,27 +67,26 @@ AttributedString(
 #### tracking(*CGFloat*)
 #### baselineOffset(*CGFloat*)
 
-### Custom styles
+### Advanced styling
 
 ```
+
+let rainbow: [Color] = [
+	.blue, .teal, .red, .gray, .yellow, .orange, .purple
+]
+
 let rainbowStyleGroup = StyleGroup(
 	styleCustom: { source in
 		var attrString = source
 		for run in attrString.runs {
 			let currentRange = run.range
 			var index = currentRange.lowerBound
-			let rainbow: [Color] = [
-				.blue,
-				.teal,
-				.red,
-				.gray,
-				.yellow,
-				.orange,
-				.purple
-			]
 			var colorCounter: Int = 0
 			while index < currentRange.upperBound {
-				let nextIndex = attrString.characters.index(index, offsetBy: 1)
+				let nextIndex = attrString.characters.index(
+					index,
+					offsetBy: 1
+					)
 				attrString[index ..< nextIndex].foregroundColor = rainbow[colorCounter]
 				colorCounter += 1
 				if colorCounter >= rainbow.count {
