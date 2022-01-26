@@ -6,12 +6,16 @@
 iOS 15.0 / macOS 12.0 / tvOS 15.0 / watchOS 8.0
 </p>
 
-iOS 15 comes with markdown string support. You can style your strings with standard markdown syntax like **`**bold**`** and *`*italic*`*
+iOS 15 comes with markdown string support. By default, you can style your strings with standard markdown syntax like **`**bold**`** and *`*italic*`*
 Although this is nice, as developers we usually need to specify a bit more complex styling information like `font type` and `text color`.
 
 ---
 
-StyledMarkdown is a mini library that lets you define custom styles in code and use those styles in your localized markdown strings. Create your custom styles via specifying attributes like custom fonts, text colors, underline styles and more. You can create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit` with those styled markdown strings.
+StyledMarkdown is a mini library that lets you define custom styles in code and use those styles in your localized markdown strings.
+
+- Define your custom styles via specifying attributes like custom fonts, text colors, underline styles and more, and name those syles.
+- Use those style names in your markdown strings.
+- Using StyledMarkdown, provide your custom style definitions and markdown strings which are using those custom styles' names, and create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit`.
 
 With StyledMarkdown, you do not have to define a custom `AttributedStringKey` each time you want a custom style in your markdown, as this is already done in StyledMarkdown.
 
