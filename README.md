@@ -13,9 +13,9 @@ This is nice, but there is usually a need to specify more complex styling like `
 
 StyledMarkdown is a mini library that lets you define custom styles in code and use those styles in your localized markdown strings.
 
-- Define your custom styles via specifying attributes like custom fonts, text colors, underline styles and more, and name those syles.
+- Define your custom styles in code via specifying attributes like custom fonts, text colors, underline styles and more, and name those syles.
 - Use those style names in your markdown strings.
-- Using StyledMarkdown, provide your custom style definitions and markdown strings which are using those custom styles' names, and create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit`.
+- Provide your custom style definitions and markdown strings which are using those custom styles' names to StyledMarkdown. StyledMarkdown can create `SwiftUI` `Text` views or just `AttributedString`s for `UIKit`.
 
 With this approach, you do not have to define a custom `AttributedStringKey` each time you want a custom style in your markdown, as StyledMarkdown handles this part for you.
 
