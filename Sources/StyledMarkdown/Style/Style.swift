@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import UIKit
 
 public class Style: StyleProtocol {
     
-    public var font: SwiftUI.Font?
+    public var font: FontProtocol?
     
-    public var foregroundColor: Color?
+    public var foregroundColor: ColorProtocol?
     
-    public var strikethroughColor: Color?
+    public var strikethroughColor: ColorProtocol?
     
     public var strikethroughStyle: NSUnderlineStyle?
     
@@ -63,3 +64,12 @@ public class Style: StyleProtocol {
         return result
     }
 }
+
+public protocol FontProtocol {}
+
+public protocol ColorProtocol {}
+
+extension UIFont: FontProtocol {}
+extension SwiftUI.Font: FontProtocol {}
+extension UIColor: ColorProtocol {}
+extension SwiftUI.Color: ColorProtocol {}

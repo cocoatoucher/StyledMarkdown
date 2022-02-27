@@ -102,13 +102,13 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
     
     static var languageStyleGroup: StyleGroup {
         let normalStyle = Style { style in
-            style.font = .subheadline
-            style.foregroundColor = .white
+            style.font = Font.subheadline
+            style.foregroundColor = Color.white
         }
         
         let italicStyle = Style { style in
             style.font = Font.italic(.system(size: 20))()
-            style.foregroundColor = .blue
+            style.foregroundColor = Color.blue
         }
         
         return .init(
@@ -121,13 +121,13 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
     
     static var linkStyleGroup: StyleGroup {
         let normalStyle = Style { style in
-            style.font = .subheadline
-            style.foregroundColor = .white
+            style.font = Font.subheadline
+            style.foregroundColor = Color.white
         }
         
         let linkStyle = Style { style in
-            style.foregroundColor = .white
-            style.underlineColor = .yellow
+            style.foregroundColor = Color.white
+            style.underlineColor = Color.yellow
             style.underlineStyle = .single
         }
         
@@ -141,21 +141,21 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
     
     static var firstStyleGroup: StyleGroup {
         let normalStyle = Style { style in
-            style.font = .subheadline
-            style.foregroundColor = .white
+            style.font = Font.subheadline
+            style.foregroundColor = Color.white
         }
         
         let italicAndStrikedStyle = Style { style in
             style.font = Font.italic(.system(size: 20))()
-            style.foregroundColor = .blue
-            style.strikethroughColor = .yellow
+            style.foregroundColor = Color.blue
+            style.strikethroughColor = Color.yellow
             style.strikethroughStyle = .single
         }
         
         let underlinedStyle = Style { style in
             style.font = Font.bold(.system(size: 20))()
-            style.foregroundColor = .yellow
-            style.underlineColor = .red
+            style.foregroundColor = Color.yellow
+            style.underlineColor = Color.red
             style.underlineStyle = .single
         }
         
@@ -170,8 +170,8 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
     
     static var secondStyleGroup: StyleGroup {
         let normalStyle = Style { style in
-            style.font = .subheadline
-            style.foregroundColor = .white
+            style.font = Font.subheadline
+            style.foregroundColor = Color.white
         }
         
         let moreKerning = Style { style in
@@ -195,8 +195,8 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
     
     static var thirdStyleGroup: StyleGroup {
         let normalStyle = Style { style in
-            style.font = .subheadline
-            style.foregroundColor = .white
+            style.font = Font.subheadline
+            style.foregroundColor = Color.white
         }
         
         let moreBaselineOffset = Style { style in

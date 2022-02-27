@@ -61,11 +61,11 @@ AttributedString(
 
 ## Supported modifiers
 
-#### font(*SwiftUI.Font*)
-#### foregroundColor(*Color*)
-#### strikethrough(*Color*)
+#### font(*SwiftUI.Font* or *UIFont*)
+#### foregroundColor(*SwiftUI.Color* or *UIColor*)
+#### strikethrough(*SwiftUI.Color* or *UIColor*)
 #### strikethroughStyle(*NSUnderlineStyle*)
-#### underline(*Color*)
+#### underline(*SwiftUI.Color* or *UIColor*)
 #### underlineStyle(*NSUnderlineStyle*)
 #### kerning(*CGFloat*)
 #### tracking(*CGFloat*)
@@ -133,4 +133,4 @@ generates
 
 ### 🎆 Images (not supported)
 
-It is currently not supported to include `Image` elements within `AttributedString`.
+iOS currently does not support including custom `Image` attachments within `AttributedString`.

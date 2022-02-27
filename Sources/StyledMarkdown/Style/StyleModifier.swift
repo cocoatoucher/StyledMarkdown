@@ -8,11 +8,11 @@
 import SwiftUI
 
 public enum StyleModifier {
-    case font(SwiftUI.Font)
-    case foregroundColor(Color)
-    case strikethroughColor(Color)
+    case font(FontProtocol)
+    case foregroundColor(ColorProtocol)
+    case strikethroughColor(ColorProtocol)
     case strikethroughStyle(NSUnderlineStyle)
-    case underline(Color)
+    case underline(ColorProtocol)
     case underlineStyle(NSUnderlineStyle)
     case kerning(CGFloat)
     case tracking(CGFloat)

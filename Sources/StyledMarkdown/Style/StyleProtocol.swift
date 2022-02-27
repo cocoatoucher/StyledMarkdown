@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 public protocol StyleProtocol {
     var modifiers: [StyleModifier] { get }
@@ -19,15 +20,35 @@ public extension StyleProtocol {
         for modifier in modifiers {
             switch modifier {
             case .font(let font):
-                source.font = font
+                if let uiFont = font as? UIFont {
+                    source.font = uiFont
+                } else {
+                    source.font = font as? SwiftUI.Font
+                }
             case .foregroundColor(let color):
-                source.foregroundColor = color
+                if let uiColor = color as? UIColor {
+                    source.foregroundColor = uiColor
+                } else {
+                    source.foregroundColor = color as? SwiftUI.Color
+                }
             case .strikethroughColor(let color):
-                source.strikethroughColor = .init(color)
+                if let uiColor = color as? UIColor {
+                    source.strikethroughColor = uiColor
+                } else if let color = color as? SwiftUI.Color {
+                    source.strikethroughColor = .init(color)
+                } else {
+                    source.strikethroughColor = nil
+                }
             case .strikethroughStyle(let style):
                 source.strikethroughStyle = style
             case .underline(let color):
-                source.underlineColor = .init(color)
+                if let uiColor = color as? UIColor {
+                    source.underlineColor = uiColor
+                } else if let color = color as? SwiftUI.Color {
+                    source.underlineColor = .init(color)
+                } else {
+                    source.underlineColor = nil
+                }
             case .underlineStyle(let style):
                 source.underlineStyle = style
             case .kerning(let kerning):
