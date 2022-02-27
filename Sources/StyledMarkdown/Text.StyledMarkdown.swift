@@ -129,6 +129,7 @@ struct Text_StyledMarkdown_Previews: PreviewProvider {
             style.foregroundColor = Color.white
             style.underlineColor = Color.yellow
             style.underlineStyle = .single
+            style.backgroundColor = Color.red
         }
         
         return .init(

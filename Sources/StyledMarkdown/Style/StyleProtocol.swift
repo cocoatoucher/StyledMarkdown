@@ -31,6 +31,12 @@ public extension StyleProtocol {
                 } else {
                     source.foregroundColor = color as? SwiftUI.Color
                 }
+            case .backgroundColor(let color):
+                if let uiColor = color as? UIColor {
+                    source.backgroundColor = uiColor
+                } else {
+                    source.backgroundColor = color as? SwiftUI.Color
+                }
             case .strikethroughColor(let color):
                 if let uiColor = color as? UIColor {
                     source.strikethroughColor = uiColor

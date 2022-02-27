@@ -14,6 +14,8 @@ public class Style: StyleProtocol {
     
     public var foregroundColor: ColorProtocol?
     
+    public var backgroundColor: ColorProtocol?
+    
     public var strikethroughColor: ColorProtocol?
     
     public var strikethroughStyle: NSUnderlineStyle?
@@ -39,6 +41,9 @@ public class Style: StyleProtocol {
         }
         if let foregroundColor = foregroundColor {
             result.append(.foregroundColor(foregroundColor))
+        }
+        if let backgroundColor = backgroundColor {
+            result.append(.backgroundColor(backgroundColor))
         }
         if let strikethroughColor = strikethroughColor {
             result.append(.strikethroughColor(strikethroughColor))

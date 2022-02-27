@@ -10,6 +10,7 @@ import SwiftUI
 public enum StyleModifier {
     case font(FontProtocol)
     case foregroundColor(ColorProtocol)
+    case backgroundColor(ColorProtocol)
     case strikethroughColor(ColorProtocol)
     case strikethroughStyle(NSUnderlineStyle)
     case underline(ColorProtocol)

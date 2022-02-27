@@ -63,6 +63,7 @@ AttributedString(
 
 #### font(*SwiftUI.Font* or *UIFont*)
 #### foregroundColor(*SwiftUI.Color* or *UIColor*)
+#### backgroundColor(*SwiftUI.Color* or *UIColor*)
 #### strikethrough(*SwiftUI.Color* or *UIColor*)
 #### strikethroughStyle(*NSUnderlineStyle*)
 #### underline(*SwiftUI.Color* or *UIColor*)
