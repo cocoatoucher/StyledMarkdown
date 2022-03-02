@@ -6,7 +6,11 @@
 //
 
 import SwiftUI
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 public class Style: StyleProtocol {
     
@@ -74,7 +78,17 @@ public protocol FontProtocol {}
 
 public protocol ColorProtocol {}
 
+#if os(macOS)
+typealias FontType = NSFont
+typealias ColorType = NSColor
+extension NSFont: FontProtocol {}
+extension NSColor: ColorProtocol {}
+#else
+typealias FontType = UIFont
+typealias ColorType = UIColor
 extension UIFont: FontProtocol {}
-extension SwiftUI.Font: FontProtocol {}
 extension UIColor: ColorProtocol {}
+#endif
+
+extension SwiftUI.Font: FontProtocol {}
 extension SwiftUI.Color: ColorProtocol {}

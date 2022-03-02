@@ -20,25 +20,25 @@ public extension StyleProtocol {
         for modifier in modifiers {
             switch modifier {
             case .font(let font):
-                if let uiFont = font as? UIFont {
+                if let uiFont = font as? FontType {
                     source.font = uiFont
                 } else {
                     source.font = font as? SwiftUI.Font
                 }
             case .foregroundColor(let color):
-                if let uiColor = color as? UIColor {
+                if let uiColor = color as? ColorType {
                     source.foregroundColor = uiColor
                 } else {
                     source.foregroundColor = color as? SwiftUI.Color
                 }
             case .backgroundColor(let color):
-                if let uiColor = color as? UIColor {
+                if let uiColor = color as? ColorType {
                     source.backgroundColor = uiColor
                 } else {
                     source.backgroundColor = color as? SwiftUI.Color
                 }
             case .strikethroughColor(let color):
-                if let uiColor = color as? UIColor {
+                if let uiColor = color as? ColorType {
                     source.strikethroughColor = uiColor
                 } else if let color = color as? SwiftUI.Color {
                     source.strikethroughColor = .init(color)
@@ -48,7 +48,7 @@ public extension StyleProtocol {
             case .strikethroughStyle(let style):
                 source.strikethroughStyle = style
             case .underline(let color):
-                if let uiColor = color as? UIColor {
+                if let uiColor = color as? ColorType {
                     source.underlineColor = uiColor
                 } else if let color = color as? SwiftUI.Color {
                     source.underlineColor = .init(color)
