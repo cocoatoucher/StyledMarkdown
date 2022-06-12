@@ -26,7 +26,7 @@ With this approach, you do not have to define a custom `AttributedStringKey` eac
 
 ## Sample usage
 
-```
+```swift
 let normalStyle = Style { style in
 	style.font = .subheadline
 	style.foregroundColor = .red
@@ -74,8 +74,7 @@ AttributedString(
 
 ### Advanced styling
 
-```
-
+```swift
 let rainbow: [Color] = [
 	.blue, .teal, .red, .gray, .yellow, .orange, .purple
 ]
