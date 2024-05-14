@@ -14,10 +14,19 @@ public extension AttributedString {
     ///   - styleGroup: Style group to be used to apply styling on the markdown.
     init(
         localized: String.LocalizationValue,
-        styleGroup: StyleGroup
+        styleGroup: StyleGroup,
+        options: AttributedString.FormattingOptions = [],
+        table: String? = nil,
+        bundle: Bundle? = nil,
+        locale: Locale? = nil,
+        comment: StaticString? = nil
     ) {
         let attributedString = AttributedString(
             localized: localized,
+            options: options,
+            table: table,
+            bundle: bundle,
+            locale: locale,
             including: \.styledMarkdown
         )
         self = Self.annotateStyles(
