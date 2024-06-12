@@ -27,6 +27,7 @@ public extension AttributedString {
             table: table,
             bundle: bundle,
             locale: locale,
+            comment: comment,
             including: \.styledMarkdown
         )
         self = Self.annotateStyles(
